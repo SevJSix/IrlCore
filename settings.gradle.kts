@@ -1,4 +1,4 @@
-rootProject.name = "GradlePluginBase"
+rootProject.name = "IrlCore"
 
 include(":Common", ":Mixins", ":Plugin")
 

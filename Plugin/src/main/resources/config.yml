@@ -1,0 +1,37 @@
+TabList:
+  Header:
+    - ""
+    - "&r&bIan Edges Official"
+    - "&r"
+    - "&6Border Size: &6&l%worldbordersize%"
+    - "&r"
+  Footer:
+    - ""
+    - "&7tps: &f%tps% &7ping: &f%ping% &7players: &f%players% &7uptime: &f%uptime%"
+    - ""
+
+UHCTab:
+  Header:
+    - ""
+    - "&c&lUHC"
+    - "&r"
+    - "&6Border Size: &6&l%worldbordersize%"
+    - "&r"
+  Footer:
+    - ""
+    - "&7tps: &f%tps% &7ping: &f%ping%"
+    - "&7Match Stage Progresses in: &a%timetill%"
+    - ""
+
+SpleefTab:
+  Header:
+    - ""
+    - "&a&lSpleef"
+    - "&r"
+  Footer:
+    - ""
+    - "&7tps: &f%tps% &7ping: &f%ping%"
+    - ""
+
+Motds:
+  - "&bIRLImpurity &a&lUHC&r&7/&c&lSurvival&r"

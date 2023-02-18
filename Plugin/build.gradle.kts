@@ -11,15 +11,22 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url = uri("https://repo.txmc.me/releases") }
+    maven { url = uri("https://repo.papermc.io/repository/maven-public/") }
+    maven(File(projectDir.parent, "local-repo").toURI().toURL())
 }
 
 dependencies {
-    implementation("me.txmc:protocolapi:1.2-SNAPSHOT")
     implementation(project(":Common"))
-    compileOnly("com.destroystokyo.paper:paper-jar:1.12.2-R0.1-SNAPSHOT")
+    implementation(project(":Mixins"))
+    implementation(files("${rootProject.projectDir}/libs/NoteBlockAPI-1.6.1-SNAPSHOT.jar"))
+    compileOnly("io.papermc:paper-jar:1.8.8")
     compileOnly("org.projectlombok:lombok:1.18.22")
+    compileOnly("com.github.fierioziy.particlenativeapi:ParticleNativeAPI-plugin:3.3.1")
     annotationProcessor("org.projectlombok:lombok:1.18.24")
+    compileOnly("com.sk89q.worldedit:worldedit-bukkit:6.1.4-SNAPSHOT")
+    compileOnly("com.onarandombox:multiverse-core:2.5")
 }
+
 tasks.processResources {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     val resources = File("src/main/resources")

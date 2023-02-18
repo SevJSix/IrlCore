@@ -1,4 +1,32 @@
-name: GradlePluginBase
+name: IrlCore
 version: 1.0-SNAPSHOT
 main: me.txmc.gradlepluginbase.Main
 authors: [ 254n_m ]
+soft-depend: ParticleNativeAPI
+commands:
+  startuhc:
+    description: start a uhc match
+  enduhc:
+    description: end a uhc match
+  leave:
+    description: leave the uhc match
+  resetuhc:
+    description: reset all uhc worlds
+  startspleef:
+    description: start a spleef match
+  f:
+    description: spawn a test firework
+  progress:
+    description: a
+  queue:
+    description: sa
+  team:
+    description: zzaz
+  teamsetting:
+    description: zaza
+  startskywars:
+    description: ee
+  saveskywarschest:
+    description: eee
+  skywarslocation:
+    description: e212

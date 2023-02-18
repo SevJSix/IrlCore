@@ -1,5 +1,6 @@
 package me.txmc.gradlepluginbase.mixin;
 
+import me.txmc.gradlepluginbase.mixin.mixins.*;
 import me.txmc.rtmixin.RtMixin;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,8 +15,10 @@ public class MixinMain {
         plugin.getLogger().info(translate("&3Successfully attached agent and got instrumentation instance&r&a %s&r", inst.getClass().getName()));
         long start = System.currentTimeMillis();
         //Register your mixins here
-
-//        RtMixin.processMixins(MixinNetworkManager.class);
+        RtMixin.processMixins(Mixins.class);
+        RtMixin.processMixins(MixinBlockBreak.class);
+        RtMixin.processMixins(MixinPlayerConnection.class);
+        RtMixin.processMixins(MixinFallingBlock.class);
         //---
         plugin.getLogger().info(translate("&3Preformed all mixins in&r&a %dms&r", (System.currentTimeMillis() - start)));
     }
