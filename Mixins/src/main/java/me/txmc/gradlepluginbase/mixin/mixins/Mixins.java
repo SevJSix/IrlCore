@@ -49,7 +49,6 @@ public class Mixins {
         }
     }
 
-
     @Inject(info = @MethodInfo(_class = WorldBorder.class, name = "setSize", sig = double.class, rtype = void.class), at = @At(pos = At.Position.TAIL))
     public static void onWorldBorder(CallbackInfo ci) {
         WorldBorder worldBorder = (WorldBorder) ci.getSelf();

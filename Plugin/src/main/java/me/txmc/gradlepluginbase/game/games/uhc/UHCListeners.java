@@ -238,7 +238,6 @@ public class UHCListeners implements Listener, GameData {
         if (Objects.equals(event.getWorld().getName(), "uhc")) {
             event.getWorld().getPopulators().add(new OrePopulator());
             event.getWorld().getPopulators().add(new ChatGPTPopulatorTest());
-            event.getWorld().getPopulators().add(new MonumentPopulator());
         }
     }
 

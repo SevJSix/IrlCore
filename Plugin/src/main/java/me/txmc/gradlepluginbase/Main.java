@@ -14,6 +14,7 @@ import me.txmc.gradlepluginbase.game.queue.TeamSettingCommand;
 import me.txmc.gradlepluginbase.game.queue.listener.QueueListeners;
 import me.txmc.gradlepluginbase.impl.bukkitcommand.*;
 import me.txmc.gradlepluginbase.impl.listener.PattonTrolling;
+import me.txmc.gradlepluginbase.impl.listener.lobby.LobbyListeners;
 import me.txmc.gradlepluginbase.impl.listener.motd.IconManager;
 import me.txmc.gradlepluginbase.impl.listener.motd.ServerPingListener;
 import me.txmc.gradlepluginbase.impl.worldgen.VoidWorldGenerator;
@@ -35,6 +36,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import javax.persistence.Lob;
 import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -106,6 +108,7 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new SpleefListeners(), this);
         Bukkit.getPluginManager().registerEvents(new SkywarsListeners(), this);
         Bukkit.getPluginManager().registerEvents(new TowerBuilderListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LobbyListeners(), this);
         Bukkit.getPluginManager().registerEvents(nettyReworking, this);
         Arrays.stream(Objects.requireNonNull(IconManager.getIconDataFolder().listFiles())).forEach(file -> {
             try {
@@ -118,7 +121,6 @@ public final class Main extends JavaPlugin implements Listener {
         packetCommandManager = new PacketCommandManager();
         manager.registerPacketListener(new PacketChatListener(packetCommandManager));
         manager.registerPacketListener(nettyReworking);
-        manager.registerPacketListener(new SkywarsListeners());
         packetCommandManager.registerCommand(new PacketCommandHelp());
         packetCommandManager.registerCommand(new PacketCommandMessage());
         packetCommandManager.registerCommand(new PacketCommandHeal());

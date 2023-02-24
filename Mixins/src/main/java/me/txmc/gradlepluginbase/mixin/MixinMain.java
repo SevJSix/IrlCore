@@ -19,6 +19,7 @@ public class MixinMain {
         RtMixin.processMixins(MixinBlockBreak.class);
         RtMixin.processMixins(MixinPlayerConnection.class);
         RtMixin.processMixins(MixinFallingBlock.class);
+        RtMixin.processMixins(MixinProjectile.class);
         //---
         plugin.getLogger().info(translate("&3Preformed all mixins in&r&a %dms&r", (System.currentTimeMillis() - start)));
     }

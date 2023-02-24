@@ -167,12 +167,12 @@ public class UHCGame extends MiniGame {
         if (timesProgressed == 0) {
             playWitherDeath();
             broadcast("&8Grace Period Over! &4&lPVP Enabled");
-            spawnDrops(ThreadLocalRandom.current().nextInt(1, 5), (int) TimeUnit.MINUTES.toSeconds(5), (int) TimeUnit.MINUTES.toSeconds(10));
+            spawnDrops((int) Math.round(getParticipants().size() * 0.5) + 1, (int) TimeUnit.MINUTES.toSeconds(5), (int) TimeUnit.MINUTES.toSeconds(10));
         } else {
             broadcast(String.format("World border shrinking from &a%s &3blocks to &a%s &3blocks", (int) borderSize, (int) borderSize / 2));
             borderSize = borderSize / 2;
             world.getWorldBorder().setSize(borderSize * 2, (long) (Math.sqrt(borderSize) * 15));
-            spawnDrops(ThreadLocalRandom.current().nextInt(1, 5), (int) TimeUnit.MINUTES.toSeconds(1), (int) TimeUnit.MINUTES.toSeconds(3));
+            spawnDrops((int) Math.round(getParticipants().size() * 0.5) + 1, (int) TimeUnit.MINUTES.toSeconds(1), (int) TimeUnit.MINUTES.toSeconds(3));
         }
         timesProgressed++;
     }

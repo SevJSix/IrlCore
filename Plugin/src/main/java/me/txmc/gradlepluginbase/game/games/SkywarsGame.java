@@ -203,7 +203,7 @@ public class SkywarsGame extends MiniGame {
             player.getInventory().clear();
             player.getInventory().setArmorContents(null);
             player.setFireTicks(0);
-            player.setMaxHealth(20);
+            player.setMaxHealth(40);
             player.setHealth(20);
             player.setFoodLevel(20);
             player.getActivePotionEffects().clear();
@@ -221,6 +221,7 @@ public class SkywarsGame extends MiniGame {
                 Utils.setInventoryFromNBT(player, logoutSpot.getInventoryDataTag());
                 LogoutIO.deleteLogoutSpot(player.getUniqueId());
                 player.setFireTicks(0);
+                player.setMaxHealth(20);
                 player.setHealth(20);
                 player.setFoodLevel(20);
                 player.getActivePotionEffects().clear();
@@ -427,8 +428,6 @@ public class SkywarsGame extends MiniGame {
                 ItemUtils.genStack(Material.EGG, 8),
                 ItemUtils.genStack(Material.SNOW_BALL, 16),
                 ItemUtils.genStack(Material.SNOW_BALL, 8),
-                ItemUtils.genStack(Material.EGG, 32),
-                ItemUtils.genStack(Material.SNOW_BALL, 32)
         };
         public static ItemStack[] potions = new ItemStack[]{
                 ItemUtils.genPotion(PotionType.SPEED, Potion.Tier.TWO, true),

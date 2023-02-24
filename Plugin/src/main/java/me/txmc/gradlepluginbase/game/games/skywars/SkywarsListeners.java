@@ -27,7 +27,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
-public class SkywarsListeners implements Listener, GameData, PacketListener {
+public class SkywarsListeners implements Listener, GameData {
 
     @EventHandler
     public void onPreDeath(PlayerPreDeathEvent event) {
@@ -109,19 +109,6 @@ public class SkywarsListeners implements Listener, GameData, PacketListener {
             if (game instanceof SkywarsGame) {
                 SkywarsGame skywars = (SkywarsGame) game;
                 skywars.eliminate(player, new TextComponent(Utils.translateChars(String.format("&6&lSKYWARS>>&r &3%s &4has been eliminated due to leaving!", player.getName()))));
-            }
-        }
-    }
-
-    @Override
-    public void onPacket(PacketEvent event) {
-        if (event.getType() == PacketEvent.PacketEventType.INCOMING && event.getPacket() instanceof PacketPlayInFlying) {
-            Player player = event.getPlayer();
-            if (!isPlayerInGame(player)) return;
-            if (!(getPlayerGame(player) instanceof SkywarsGame)) return;
-            SkywarsGame game = (SkywarsGame) getPlayerGame(player);
-            if (!game.isOngoing() && player.getWorld().getName().equalsIgnoreCase("skywars")) {
-                event.setCancelled(true);
             }
         }
     }

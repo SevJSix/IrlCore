@@ -31,7 +31,8 @@ public class SaveSkywarsSpawnLocation implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.isOp()) {
-                Location location = new Location(player.getWorld(), player.getLocation().getBlockX() + 0.5, player.getLocation().getY(), player.getLocation().getBlockZ() + 0.5);
+                Location ogLoc = player.getLocation();
+                Location location = new Location(player.getWorld(), Math.round(ogLoc.getX()) + 0.5, Math.round(ogLoc.getY()), Math.round(ogLoc.getZ()) + 0.5);
                 NBTTagCompound chestCompound = Utils.saveLocationToNBT(location);
                 String fileName = String.format("skywars_location%s.nbt", Objects.requireNonNull(spawnLocationsDataFolder.listFiles()).length);
                 File chestNBTFile = new File(spawnLocationsDataFolder, fileName);
