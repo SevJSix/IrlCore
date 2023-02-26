@@ -671,6 +671,15 @@ public class Utils {
         fallingBlock.mount(chicken);
     }
 
+    public static EntityChicken spawnInvisibleChicken(Location location) {
+        EntityChicken chicken = new EntityChicken(((CraftWorld) location.getWorld()).getHandle());
+        setEntitySilentAndInvulnerable(chicken);
+        chicken.setPosition(location.getX(), location.getY(), location.getZ());
+        ((CraftWorld) location.getWorld()).getHandle().addEntity(chicken);
+        chicken.addEffect(new MobEffect(14, 10000, 3, true, true));
+        return chicken;
+    }
+
     public static List<Player> getNearbyPlayers(Location location, int radius) {
         return location.getWorld().getNearbyEntities(location, radius, radius, radius).stream().filter(entity -> entity instanceof Player).map(entity -> (Player) entity).collect(Collectors.toList());
     }

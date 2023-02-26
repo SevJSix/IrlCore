@@ -78,6 +78,7 @@ public class UHCListeners implements Listener, GameData {
         Player player = event.getPlayer();
         if (Utils.hasLogoutSpot(player)) Utils.handleLogoutSpot(player);
         Utils.resetDisplayName(player);
+        player.teleport(new Location(Bukkit.getWorld("lobby"), -71.5, 95, 46.5));
     }
 
     @EventHandler

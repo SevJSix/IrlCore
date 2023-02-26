@@ -108,6 +108,7 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new SpleefListeners(), this);
         Bukkit.getPluginManager().registerEvents(new SkywarsListeners(), this);
         Bukkit.getPluginManager().registerEvents(new TowerBuilderListener(), this);
+//        Bukkit.getPluginManager().registerEvents(new GrappleHookListener(), this);
         Bukkit.getPluginManager().registerEvents(new LobbyListeners(), this);
         Bukkit.getPluginManager().registerEvents(nettyReworking, this);
         Arrays.stream(Objects.requireNonNull(IconManager.getIconDataFolder().listFiles())).forEach(file -> {
